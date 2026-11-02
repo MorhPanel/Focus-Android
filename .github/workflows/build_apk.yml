@@ -53,7 +53,7 @@ jobs:
 
       - name: Build APK with Gradle
         run: |
-          ./gradlew :TMessagesProj_AppStandalone:assembleAfatDebug --stacktrace
+          ./gradlew :TMessagesProj_AppStandalone:assembleArm64Debug --stacktrace
 
       - name: Locate Generated APKs
         run: |
