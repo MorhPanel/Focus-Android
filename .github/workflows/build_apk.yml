@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     name: Build Telegram 13.1.1 APK
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 60
 
     steps:
@@ -25,13 +25,13 @@ jobs:
           df -h
 
       - name: Checkout repository and submodules
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: recursive
           fetch-depth: 1
 
       - name: Set up Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -61,7 +61,7 @@ jobs:
           find . -name "*.apk" -ls
 
       - name: Upload APK Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Focus-Android-13.1.1-debug
           path: "**/build/outputs/apk/**/*.apk"
